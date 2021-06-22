@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import datetime
 import time
-from env import password_email
+from env import password_email, email_login
 
 url = "https://www.avito.ru/rostov-na-donu/kvartiry/sdam/na_dlitelnyy_srok/1-komnatnye-ASgBAQICAkSSA8gQ8AeQUgFAzAgUjlk?cd=1&district=349&pmax=14100&s=104"
 
@@ -74,11 +74,11 @@ def send_mes(item_title, item_address, item_price, item_data, item_href):
     from email.mime.image import MIMEImage  # Изображения
 
     server = 'smtp.mail.ru'
-    user = 'romanenko_b00@mail.ru'
+    user = email_login
     password = password_email
 
-    recipients = ['romanenko_b00@mail.ru']
-    sender = 'romanenko_b00@mail.ru'
+    recipients = [email_login]
+    sender = email_login
     subject = 'Квартира'
     text = item_title + "\n" + item_address + "\n" + item_price + "\n" + item_data + "\n" + item_href
 
